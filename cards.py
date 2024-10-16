@@ -1,4 +1,11 @@
 from interface import *
+from enum import Enum
+
+
+CardType = Enum('CardType', [
+    'INSIDE', 'OUTSIDE',
+    'TOWN', 'VILLAGE'
+])
 
 
 class ShootingCard(Card):
@@ -6,7 +13,7 @@ class ShootingCard(Card):
         super(c,
             title='Расстрел',
             text='Выберите действие:',
-            type='inside',
+            type=CardType.INSIDE,
             info_list=InfoList(
                 InfoField('Расстреляно', lambda: c.shoot)
             ),

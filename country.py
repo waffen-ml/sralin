@@ -1,21 +1,27 @@
 from cards import *
+from interface import CardContainer
+
+
+
 
 
 class Country:
-    def __init__(self, world):
+    def __init__(self, world, name, password):
         self.id = -1
+        self.name = name
+        self.password = password
         self.world = world
+
+        self.cards = CardContainer(
+            ShootingCard(self)
+        )
+        
         self.shoot = 0
 
-        self.cards = [
-            ShootingCard(self)
-        ]
-
         #тут задаем саму страну(пользователя)
-    
+
     def update(self, dt):
         pass
         
-    def change_card(self, card_idx, payload):
-        self.cards[card_idx].change(payload)
+
 
